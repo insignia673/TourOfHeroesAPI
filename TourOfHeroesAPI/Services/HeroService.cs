@@ -1,5 +1,7 @@
-﻿using ServiceStack.Data;
-using ServiceStack.OrmLite;
+﻿//using ServiceStack.Data;
+//using ServiceStack.OrmLite;
+using ORMF23.Data.Contracts;
+using ORMF23.Statics;
 using System.Collections.Generic;
 using System.Data;
 using System.Threading.Tasks;

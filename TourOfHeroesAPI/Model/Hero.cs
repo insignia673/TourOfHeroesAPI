@@ -3,6 +3,7 @@
 namespace TourOfHeroesAPI.Model
 {
     [Alias("Heroes")]
+    [ORMF23.Data.Alias("Heroes")]
     public class Hero
     {
         [AutoIncrement]

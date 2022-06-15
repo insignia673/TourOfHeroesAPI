@@ -7,8 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using ServiceStack.Data;
-using ServiceStack.OrmLite;
+using ORMF23.Data;
+using ORMF23.Data.Contracts;
+//using ServiceStack.Data;
+//using ServiceStack.OrmLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +44,8 @@ namespace TourOfHeroesAPI
             });
 
             services.AddSingleton<IDbConnectionFactory>(
-                new OrmLiteConnectionFactory(Configuration.GetConnectionString("Default"), SqlServerDialect.Provider));
+                new OrmF23ConnectionFactory(Configuration.GetConnectionString("Default")));
+
             services.AddSingleton<StartSetUp>();
             services.AddTransient<HeroService>();
 

@@ -1,5 +1,7 @@
-﻿using ServiceStack.Data;
-using ServiceStack.OrmLite;
+﻿//using ServiceStack.Data;
+using ORMF23.Data.Contracts;
+using ORMF23.Statics;
+//using ServiceStack.OrmLite;
 using System.Data;
 using TourOfHeroesAPI.Model;
 
@@ -27,10 +29,14 @@ namespace TourOfHeroesAPI
             Run();
         }
 
-        private void Run()
+        private async void Run()
         {
-            db.DropAndCreateTable<Hero>();
-            db.Save(startupData);
+            await db.DropAndCreateTableAsync<Hero>();
+            //db.Save(startupData);
+            foreach (var item in startupData)
+            {
+                await db.InsertAsync(item);
+            }
         }
     }
 }

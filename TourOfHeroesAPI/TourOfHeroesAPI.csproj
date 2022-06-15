@@ -14,4 +14,8 @@
     <Folder Include="Angular\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\ORMF23\ORMF23\ORMF23.csproj" />
+  </ItemGroup>
+
 </Project>
