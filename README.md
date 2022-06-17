@@ -11,7 +11,7 @@ for dependency injection: create an singleton of type IDbConnectionFactory.
 
 IDbConnectionFactory will provide an SqlConnection instance with the OpenDbConnection() method.
 
-## Example:
+### Example:
 ```cs
 // dependency injection section
 serviceCollection.AddSingleton<IDbConnectionFactory>(new OrmF23ConnectionFactory(Configuration.GetConnectionString("Default")));
@@ -30,9 +30,9 @@ public async Task<User> GetUsers()
 }
 ```
 
-## Database Methods
+### Database Methods
 ```cs
-  //Method name                         Parameters                          Explanation
+  //Method name                         Parameters
   
   //Selects all that match from database table of type T
   SelectAsync<T>                      Func<T, bool> predicate             
