@@ -57,7 +57,7 @@ namespace ORMF23.Statics
             await Task.Run(() => connection.GetManager().DropOrCreateTable(QueryBuilder.DeleteTable<T>()));
         }
 
-        public static SqlManager GetManager(this IDbConnection conn)
+        private static SqlManager GetManager(this IDbConnection conn)
         {
             return new SqlManager(conn);
         }
