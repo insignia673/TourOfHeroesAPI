@@ -32,21 +32,29 @@ public async Task<User> GetUsers()
 
 ## Database Methods
 ```cs
-  Method name                         Parameters                          Explanation
+  //Method name                         Parameters                          Explanation
   
-  SelectAsync<T>                      Func<T, bool> predicate             Selects all that match from database table of type T
+  //Selects all that match from database table of type T
+  SelectAsync<T>                      Func<T, bool> predicate             
   
-  SingleAsync<T>                      Func<T, bool> predicate             Selects a single match from database table of type T
+  //Selects a single match from database table of type T
+  SingleAsync<T>                      Func<T, bool> predicate             
   
-  InsertAsync<T>                      T entity, bool SelectIdentity       Inserts T entity into database of type T, returns entity id if selectIdentity is true
+  //Inserts T entity into database of type T, returns entity id if selectIdentity is true
+  InsertAsync<T>                      T entity, bool SelectIdentity       
   
-  UpdateAsync<T>                      T entity, bool selectIdentity       Updates T entity into database of type T, returns entity id if selectIdentity is true
+  //Updates T entity into database of type T, returns entity id if selectIdentity is true
+  UpdateAsync<T>                      T entity, bool selectIdentity       
   
-  DeleteAsync<T>                      Func<T, bool> predicate             Deletes entities from database matching predicate
+  //Deletes entities from database matching predicate
+  DeleteAsync<T>                      Func<T, bool> predicate        
   
-  ExistsAsync<T>                      Func<T, bool> predicate             Checks if any entity matches predicate
+  //Checks if any entity matches predicate
+  ExistsAsync<T>                      Func<T, bool> predicate             
   
-  DropAndCreateTableAsync<T>          N/A                                 If database table of type T exist it will delete it, then it will create table of type T 
+  //If database table of type T exist it will delete it, then it will create table of type T
+  DropAndCreateTableAsync<T>          N/A                                  
   
-  DropTableAsync<T>                   N/A                                 Drops existing table of type T
+  //Drops existing table of type T
+  DropTableAsync<T>                   N/A                                 
 ```
