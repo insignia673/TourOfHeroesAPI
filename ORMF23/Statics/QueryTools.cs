@@ -161,6 +161,7 @@ namespace ORMF23.Statics
         }
         private static string NodeTypeConverter(Expression value)
         {
+            object newVal;
             if (value.NodeType == ExpressionType.MemberAccess)
             {
                 //nodeType parameter vs memeberaccess
@@ -168,17 +169,28 @@ namespace ORMF23.Statics
                 {
                     return ((MemberExpression)value).Member.Name;
                 }
-                return Expression.Lambda((MemberExpression)value).Compile().DynamicInvoke().ToString();
+                else
+                {
+                    newVal = Expression.Lambda((MemberExpression)value).Compile().DynamicInvoke();
+                }
+                //return Expression.Lambda((MemberExpression)value).Compile().DynamicInvoke().ToString();
             }
             else
             {
-                var newVal = ((ConstantExpression)value);
-                if (newVal.Type == typeof(string))
-                {
-                    return ("\'" + newVal.Value + "\'").ToString();
-                }
-                return newVal.Value.ToString();
+                newVal = ((ConstantExpression)value).Value;
+                //var newVal = ((ConstantExpression)value);
+                //if (newVal.Type == typeof(string))
+                //{
+                //    return ("\'" + newVal.Value + "\'").ToString();
+                //}
+                //return newVal.Value.ToString();
             }
+
+            if (newVal is string output)
+            {
+                return ("\'" + output + "\'").ToString();
+            }
+            return newVal.ToString();
         }
         //private static string GetMemeber(Expression arg)
         //{
